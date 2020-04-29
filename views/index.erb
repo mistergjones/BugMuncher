@@ -1,1 +1,45 @@
-<h1>hello world</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+<style> @import url('https://fonts.googleapis.com/css?family=Luckiest+Guy');
+ @import url('https://fonts.googleapis.com/css?family=Montserrat:900');
+</style>
+</head>
+<body>
+<h1>Bug Muncher</h1>
+<h1>Current Sprint: Defect Overview</h1>
+
+    <div class="grid-defect-summary">
+        <% defect_summary.each do |defect| %>
+
+            <div><%= defect["status"]%>: <%= defect["count"]%></div>
+            
+        <% end %>
+    </div>
+
+
+
+
+
+<div class="graph-cont">
+  <h1>Defect Bar Graph</h1>
+    <div class="bar bar1">New</div>
+    <div class="bar bar2">Open</div>
+    <div class="bar bar3">Closed</div>
+    <div class="bar bar4">In-progress</div>
+</div>
+
+    <form action="/login" method="get">
+        <button>Login</button>
+    </form>
+
+    <form action="/login" method="get">
+        <button>Login</button>
+    </form>
+
+</body>
+</html>

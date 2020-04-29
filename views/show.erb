@@ -1,0 +1,37 @@
+<h1> Showing all defects: </h1>
+
+
+<div class="grid-container grid-heading">
+            <div>ID</div>
+            <div>Title</div>
+            <div>Description</div>
+            <div>Status</div>
+            <div>Last By</div>
+
+        </div>
+
+    <% all_defects.each do |defect| %>
+
+        <div class="grid-container">
+            <div><a href="/defects/<%=defect["defect_id"] %>"><%=defect["defect_id"] %></a></div>
+            <div><%= defect["defect_title"] %></div>
+            <div><%= defect["description"] %></div>
+            <div><%= defect["status"] %></div>
+            <div><%= defect["eng_id"] %></div>
+        </div>
+
+    <% end %>
+    <br>
+    <div class="pagination">
+        <center>
+            <a href="#">&laquo;</a>
+            <a class="active" href="#">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+            <a href="#">6</a>
+            <a href="#">&raquo;</a>
+        </center>
+    </div>
+

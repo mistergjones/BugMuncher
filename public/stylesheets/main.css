@@ -1,0 +1,307 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: white;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 14px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.form {
+    text-align: center;
+}
+
+.inlineform {
+
+    display:inline;
+}
+.mainContainer {
+    width: 90%;
+    margin: 0 auto;
+
+}
+
+.allDefects {
+    color: brown;
+}
+
+
+.grid-container {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 3% 15% 61% 10% 11%;
+    grid-gap: 1px;
+}
+
+.grid-heading {
+    background-color:#5e5e5e;
+    color: white;
+    text-align: left;
+    padding: 5px;
+}
+
+.grid-defect-summary {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 1px;
+}
+
+
+
+.navbar {
+    margin-top: 1%;
+    background-color: black;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 1px;
+    
+}
+
+.navbar a {
+    color: white;
+    text-align: center;
+    padding: 5px;
+    text-decoration: none;
+}
+.navbar a:hover {
+    background-color: red;
+}
+
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+  }
+  
+  .pagination a.active {
+    background-color: dodgerblue;
+    color: white;
+  }
+  
+  .pagination a:hover:not(.active) {background-color: #ddd;}
+
+
+.icon-bar {
+    position: fixed;
+    left: 5px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  
+  .icon-bar a {
+    display: block;
+    text-align: center;
+    padding: 8px;
+    transition: all 0.3s ease;
+    color: white;
+    font-size: 8px;
+  }
+  
+  .icon-bar a:hover {
+    background-color: #000;
+  }
+  
+  .facebook {
+    background: #3B5998;
+    color: white;
+  }
+  
+  .twitter {
+    background: #55ACEE;
+    color: white;
+  }
+  
+  .google {
+    background: #dd4b39;
+    color: white;
+  }
+  
+  .linkedin {
+    background: #007bb5;
+    color: white;
+  }
+  
+  .youtube {
+    background: #bb0000;
+    color: white;
+  }
+  
+  .content {
+    margin-left: 75px;
+    font-size: 30px;
+  }
+
+
+.graph{
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    width: 30%;
+    height: 30%;
+    border-left: 2px solid black;
+    border-bottom: 2px solid black;
+ 
+}
+.graph:after{
+  content: 'Defects';
+  position: absolute;
+  text-align: center;
+  bottom: -25px;
+  margin: auto;
+  left: 0;
+  color: #BA6161;
+  right: 0;  
+}
+.graph:before{
+  content: '# of defects';
+  position: absolute;
+  bottom: 50%;
+  left:-40px;
+  color: #BA6161;
+  transform: rotate(-90deg);
+}
+.new{
+    text-align: center;
+    height: 80%;
+    width: calc(100% / 5);
+    background: yellow;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    animation: up1 1s ease-in;
+}
+@keyframes up1{
+  0%{
+    height: 0;
+  }
+  100%{
+    height: 80%;
+  }
+}
+.open{
+    text-align: center;
+    height: 30%;
+    width: calc(100% / 5);
+    background: lightcoral;
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+    animation: up2 1s ease-in;
+}
+@keyframes up2{
+  0%{
+    height: 0;
+  }
+  100%{
+    height: 30%;
+  }
+}
+.closed{
+    text-align: center;
+    height: 20%;
+    width: calc(100% / 5);
+    background: greenyellow;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    animation: up3 1s ease-in;
+}
+@keyframes up3{ 
+  0%{
+    height: 0;
+  }
+  100%{
+    height: 20%;
+  }
+}
+.in-progress{
+    text-align: center;
+    height: 30%;
+    width: calc(100% / 5);
+    background: orange;
+    position: absolute;
+    bottom: 0;
+    left: 75%;
+    animation: up4 1s ease-in;
+}
+@keyframes up4{
+  0%{
+    height: 0;
+  }
+  100%{
+    height: 30%;
+  }
+}
+
+
+
+
+
+.bar{
+    height: 30px;
+    max-width: 800px;
+    margin: 0 auto 10px auto;
+    line-height: 30px;
+    font-size: 16px;
+    color: white;
+    padding: 0 0 0 10px;
+    position: relative;
+  }
+  .bar::before{
+    content: '';
+    width: 100%;
+    position: absolute;
+    left: 0;
+    height: 30px;
+    top: 0;
+    z-index: -2;
+    background: #ecf0f1;
+  }
+  .bar::after{
+    content: '';
+    background: #2ecc71;
+    height: 30px;
+    transition: 0.7s;
+    display: block;
+    width: 100%;
+    animation: bar-before 1 1.8s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+    
+  .bar1::after{
+    max-width: 60%;
+  }
+  .bar2::after{
+    max-width: 72%;
+  }
+  .bar3::after{
+    max-width: 47%;
+  }
+  .bar4::after{
+    max-width: 20%;
+  }
+
+  @keyframes bar-before{
+    0%{
+      width: 0px;
+    }
+    100%{
+      width: 100%;
+    }
+  }
+
+ 

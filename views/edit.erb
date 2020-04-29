@@ -1,0 +1,20 @@
+<h1>Update Defect</h1>
+<form action="/defects" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <input type="hidden" name="defect_id" value="<%= defect["defect_id"] %>">
+  <br>
+  <label for="">Defect Title:</label>
+  <input name="defect_title" type="text" value="<%= defect["defect_title"] %>">
+  <br>
+  <label for="">Description:</label>
+  <input name="description" type="text" value="<%= defect["description"] %>">
+  <br>
+  <label for="">Status:</label>
+  <input name="status" type="text" value="<%= defect["status"] %>">
+  <br><br>
+  <button>Update Defect</button>
+</form>
+
+<form action="" method="get">
+  <button>Cancel</button>
+</form>

@@ -1,0 +1,23 @@
+<h1> Showing Individual Defect </h1>
+
+  <div>
+    <p>Defect ID: <%= defect["defect_id"] %></p>
+    <p>Title: <%= defect["defect_title"] %></p>
+    <p>Description: <%= defect["description"] %></p>
+    <p>Status: <%= defect["status"] %></p>
+    <p>Engineer Name: <%= engineer["name"] %></p>
+
+  </div>
+  
+  <div class="inlineform">
+
+    <form action="/defects/<%= defect["defect_id"] %>/edit" method="get" class="form">
+        <button>Edit Record</button>
+    </form>
+  
+    <form action="/defects" method="get" class="form">
+        <button>Return</button>
+    </form>
+  
+  </div>
+

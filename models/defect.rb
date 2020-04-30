@@ -1,5 +1,6 @@
 def run_sql(sql, params = [])
-    conn = PG.connect(dbname: 'bugmuncher')
+    conn = PG.connect(ENV['DATABASE_URL'] || {dbname: 'bugmuncher'})
+    # conn = PG.connect(dbname: 'bugmuncher')
     records = conn.exec_params(sql, params)
     conn.close
     records
@@ -27,4 +28,9 @@ end
 def update_defect(defect_id, defect_title, description, status, eng_id)
     sql = "UPDATE defects SET defect_title = $1, description = $2, status = $3, eng_id = $4 WHERE defect_id = $5;"
     run_sql(sql, [defect_title, description, status, eng_id, defect_id])
-  end
+end
+
+def delete_defect(defect_id)
+    sql = "DELETE FROM defects WHERE defect_id = $1;"
+    run_sql(sql, [defect_id])
+end

@@ -1,0 +1,25 @@
+<h1>Update User</h1>
+<form action="/engineers" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <input type="hidden" name="eng_id" value="<%= engineer["eng_id"] %>">
+  <br>
+  <label for="">Name:</label>
+  <input name="name" type="text" value="<%= engineer["name"] %>">
+  <br>
+  <label for="">Email:</label>
+  <input name="email" type="text" value="<%= engineer["email"] %>">
+  <br>
+  <label for="">Role:</label>
+  
+    <select name="role">
+      <option value="Jnr Dev">Jnr Dev</option>
+      <option value="Snr Dev">Snr Dev</option>
+      <option value="Tech Lead">Tech Lead</option>
+    </select>
+  <br><br>
+  <button>Update engineer</button>
+</form>
+
+<form action="" method="get">
+  <button>Cancel</button>
+</form>

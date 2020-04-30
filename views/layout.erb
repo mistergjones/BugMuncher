@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"></script>
+
   <title>BugMuncher</title>
   <link rel="stylesheet" href="/stylesheets/main.css">
 </head>
@@ -13,16 +21,13 @@
   <div class=mainContainer>
     <div class="navbar">
         <a href="/">Home</a>
-        <a href="#">Search Defects</a>
+        <a href="/defects">All Defects</a>
         <a href="#">Open Defects</a>
         <a href="#">In-Progress</a>
         <a href="#">Popcorn</a>
         <a href="#">About</a>
     </div>
 
-  <header>
-  
-  </header>
 
     <div class="icon-bar">
       <a href="#" class="facebook"><i class="fa fa-facebook"></i></a> 
@@ -33,11 +38,11 @@
     </div>
 
 
-
-
     <%= yield %>
 
-
+    <br>
+    <br>
+    <br>
     <% if logged_in? %>
         Logged in as <%= current_engineer["email"] %>
         <form action="/logout" method="post">
@@ -47,12 +52,23 @@
 
     <% end %>
 
-  <footer>
+
   
-  </footer>
 
+    <div class="fixed-footer">
+      <div class="navbar">
+          <a href="/">Home</a>
+          <a href="/defects">All Defects</a>
+          <a href="#">Open Defects</a>
+          <a href="#">In-Progress</a>
+          <a href="#">Popcorn</a>
+          <a href="#">About</a>
+      </div>
+    </div>
 
+  
   </div>
+  
 
   
 </body>

@@ -1,27 +1,17 @@
-anychart.onDocumentReady(function() {
+function ValidateEmail(inputText) {
 
-    // set the data
-    var data = [
-        {x: "White", value: 223553265},
-        {x: "Black or African American", value: 38929319},
-        {x: "American Indian and Alaska Native", value: 2932248},
-        {x: "Asian", value: 14674252},
-        {x: "Native Hawaiian and Other Pacific Islander", value: 540013},
-        {x: "Some Other Race", value: 19107368},
-        {x: "Two or More Races", value: 9009073}
-    ];
-  
-    // create the chart
-    var chart = anychart.pie();
-  
-    // set the chart title
-    chart.title("Population by Race for the United States: 2010 Census");
-  
-    // add the data
-    chart.data(data);
-  
-    // display the chart in the container
-    chart.container('container');
-    chart.draw();
-  
-  });
+    var mailformat = /^w+([.-]?w+)*@w+([.-]?w+)*(.w{2,3})+$/;
+    if(inputText.value.match(mailformat))
+        {
+            alert("You have entered a valid email address!");    //The pop up alert for a valid email address
+            document.newUser.text1.focus();
+            return true;
+        }
+    else
+        {
+            alert("You have entered an invalid email address!");    //The pop up alert for an invalid email address
+            document.newUser.text1.focus();
+            return false;
+        }
+}
+

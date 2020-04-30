@@ -1,7 +1,12 @@
 require 'sinatra'
-require 'sinatra/reloader'
+require 'sinatra/reloader' if development?
 require 'pg'
-require 'pry'
+require 'pry' if development?
+
+# if development?
+#   require sinatra/reloader
+#   require pry
+# end
 
 require_relative 'models/defect'
 require_relative 'models/engineer'
@@ -64,6 +69,7 @@ end
 post '/defects' do
   # guard condition
   redirect "/login" unless logged_in?
+  params[:status] = 'New'
   create_new_defect(params[:defect_title], params[:description], params[:status], current_engineer['eng_id'])
   redirect "/"
 end
@@ -96,6 +102,10 @@ patch '/defects' do
   redirect "/defects/#{params[:defect_id]}"  
 end
 
+delete '/defects' do
+  delete_defect(params[:defect_id])
+  redirect "/defects"
+end
 
 delete '/logout' do
   # 1 its crud - destroy - what?
@@ -107,7 +117,39 @@ delete '/logout' do
   redirect "/login"
 end
 
+# this is the route to the engineers sign up page
+get '/engineers/signup' do
+  erb(:'/engineers/new')
+end
 
 
+post '/engineers' do
+  create_engineer(params[:name], params[:email], params[:password])
+  redirect "/login"
+end
 
+get '/engineers/:eng_id' do
 
+  #1. route to login if the user is not logged in
+  # redirect "/login" unless logged_in?
+
+  engineer = find_one_engineer_by_id(params[:eng_id])
+  erb(:'/engineers/show', locals: { engineer: engineer} )
+end
+
+get '/engineers/:eng_id/edit' do
+  engineer = find_one_engineer_by_id(params[:eng_id])
+
+  erb(:'/engineers/edit', locals: { engineer: engineer })
+end
+
+patch '/engineer' do
+
+  update_engineer(
+    params[:name], 
+    params[:email], 
+    params[:role],
+    session['eng_id']
+  )
+  redirect "/engineers/#{params[:eng_id]}"  
+end

@@ -10,36 +10,78 @@
 </style>
 </head>
 <body>
-<h1>Bug Muncher</h1>
-<h1>Current Sprint: Defect Overview</h1>
+    <h1>Bug Muncher</h1>
+
+    <h3>Current Sprint: Defect Overview</h3>
 
     <div class="grid-defect-summary">
         <% defect_summary.each do |defect| %>
-
-            <div><%= defect["status"]%>: <%= defect["count"]%></div>
-            
+            <div><%= defect["status"]%></div>
+            <div class="defectCount"><%= defect["count"]%></div>
         <% end %>
     </div>
 
 
 
 
-
-<div class="graph-cont">
-  <h1>Defect Bar Graph</h1>
-    <div class="bar bar1">New</div>
-    <div class="bar bar2">Open</div>
-    <div class="bar bar3">Closed</div>
-    <div class="bar bar4">In-progress</div>
-</div>
-
-    <form action="/login" method="get">
+    <form action="/login" method="get" class="form">
         <button>Login</button>
     </form>
 
-    <form action="/login" method="get">
-        <button>Login</button>
+    <form action="/engineers/signup" method="get" class="form">
+        <button>Sign Up</button>
     </form>
+
+    <div class="fixed-height-chart">
+        <canvas id="myChart" width="200px" height="200px"></canvas>
+    </div>
+
+    <script>
+        var ctx = document.getElementById('myChart').getContext('2d');
+        allDefects = document.querySelectorAll('.defectCount');
+        updatedDefectArray = [];
+        for (var i=0; i < allDefects.length;i++) {
+            updatedDefectArray.push(allDefects[i].textContent)
+        }
+
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['New', 'Open', 'Closed', 'In-Progress'],
+                datasets: [{
+                    label: 'Defect Status',
+                    data: updatedDefectArray,
+                    backgroundColor: [
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                    ],
+                    borderColor: [
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        
+                    ],
+                    borderWidth: 5
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            min: 0,
+                            stepSize: 1
+                            // beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+       
+    </script>
 
 </body>
 </html>

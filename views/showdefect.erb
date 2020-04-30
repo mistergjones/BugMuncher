@@ -14,10 +14,18 @@
     <form action="/defects/<%= defect["defect_id"] %>/edit" method="get" class="form">
         <button>Edit Record</button>
     </form>
-  
+
     <form action="/defects" method="get" class="form">
         <button>Return</button>
     </form>
+  
+    <form action="/defects" method="post" class="form">
+        <input type="hidden" name="defect_id" value="<%= defect["defect_id"] %>">
+        <input type="hidden" name="_method" value="delete">
+      <button>Delete</button>
+    </form>
+
+
   
   </div>
 

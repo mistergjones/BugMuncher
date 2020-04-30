@@ -1,0 +1,26 @@
+<h1> Individual Engineer </h1>
+
+
+  <div>
+    <p>Engineer ID: <%= engineer["eng_id"] %></p>
+    <p>Name <%= engineer["name"] %></p>
+    <p>Email: <%= engineer["email"] %></p>
+
+  </div>
+  
+
+<div class="inlineform">
+
+    <form action="/engineers/<%= engineer["eng_id"] %>/edit" method="get" class="form">
+        <button>Edit Record</button>
+    </form>
+
+    <form action="/defects" method="get" class="form">
+        <button>Return</button>
+    </form>
+  
+    <form action="/defects" method="post" class="form">
+        <input type="hidden" name="defect_id" value="<%= engineer["eng_id"] %>">
+        <input type="hidden" name="_method" value="delete">
+      <button>Delete</button>
+    </form>

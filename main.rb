@@ -71,7 +71,7 @@ post '/defects' do
   redirect "/login" unless logged_in?
   params[:status] = 'New'
   create_new_defect(params[:defect_title], params[:description], params[:status], current_engineer['eng_id'])
-  redirect "/"
+  redirect "/defects"
 end
 
 get '/defects/:defect_id' do
@@ -117,15 +117,26 @@ delete '/logout' do
   redirect "/login"
 end
 
+get '/engineers' do
+
+  #1. route to login if the user is not logged in
+  redirect "/login" unless logged_in?
+
+  engineers = all_engineers()
+
+  erb(:'/engineers/show', locals: {engineers: engineers})
+end
+
 # this is the route to the engineers sign up page
-get '/engineers/signup' do
+get '/engineers/new' do
   erb(:'/engineers/new')
 end
 
 
 post '/engineers' do
-  create_engineer(params[:name], params[:email], params[:password])
-  redirect "/login"
+  binding.pry
+  create_engineer(params[:name], params[:email], params[:password], params[:role])
+  redirect "/engineers"
 end
 
 get '/engineers/:eng_id' do
@@ -134,7 +145,7 @@ get '/engineers/:eng_id' do
   # redirect "/login" unless logged_in?
 
   engineer = find_one_engineer_by_id(params[:eng_id])
-  erb(:'/engineers/show', locals: { engineer: engineer} )
+  erb(:'/engineers/showEngineer', locals: { engineer: engineer} )
 end
 
 get '/engineers/:eng_id/edit' do
@@ -143,13 +154,15 @@ get '/engineers/:eng_id/edit' do
   erb(:'/engineers/edit', locals: { engineer: engineer })
 end
 
-patch '/engineer' do
+patch '/engineers' do
 
   update_engineer(
+    params[:eng_id],  
     params[:name], 
-    params[:email], 
-    params[:role],
-    session['eng_id']
+    params[:email],
+    params[:role]
+    
+    #session['eng_id']
   )
   redirect "/engineers/#{params[:eng_id]}"  
 end

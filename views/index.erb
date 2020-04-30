@@ -7,6 +7,7 @@
   <title>Document</title>
 <style> @import url('https://fonts.googleapis.com/css?family=Luckiest+Guy');
  @import url('https://fonts.googleapis.com/css?family=Montserrat:900');
+ 
 </style>
 </head>
 <body>
@@ -14,74 +15,46 @@
 
     <h3>Current Sprint: Defect Overview</h3>
 
-    <div class="grid-defect-summary">
-        <% defect_summary.each do |defect| %>
-            <div><%= defect["status"]%></div>
-            <div class="defectCount"><%= defect["count"]%></div>
-        <% end %>
+    <div class="divCenter">
+        <div class="grid-defect-summary">
+            <% defect_summary.each do |defect| %>
+                <div><%= defect["status"]%></div>:
+                <div class="defectCount"><%= defect["count"]%></div>
+                |
+            <% end %>
+        </div>
     </div>
 
-
-
-
-    <form action="/login" method="get" class="form">
-        <button>Login</button>
-    </form>
-
-    <form action="/engineers/signup" method="get" class="form">
-        <button>Sign Up</button>
-    </form>
 
     <div class="fixed-height-chart">
         <canvas id="myChart" width="200px" height="200px"></canvas>
     </div>
 
-    <script>
-        var ctx = document.getElementById('myChart').getContext('2d');
-        allDefects = document.querySelectorAll('.defectCount');
-        updatedDefectArray = [];
-        for (var i=0; i < allDefects.length;i++) {
-            updatedDefectArray.push(allDefects[i].textContent)
-        }
 
-        var myChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['New', 'Open', 'Closed', 'In-Progress'],
-                datasets: [{
-                    label: 'Defect Status',
-                    data: updatedDefectArray,
-                    backgroundColor: [
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                    ],
-                    borderColor: [
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        
-                    ],
-                    borderWidth: 5
-                }]
-            },
-            options: {
-                maintainAspectRatio: false,
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            min: 0,
-                            stepSize: 1
-                            // beginAtZero: true
-                        }
-                    }]
-                }
-            }
-        });
-       
+    <button id="download">download</button>
+
+    <form action="/login" method="get" class="form">
+        <button>Login</button>
+    </form>
+
+    <form action="/engineers/new" method="get" class="form">
+        <button>Sign Up</button>
+    </form>
+
+    <script src="/javascripts/application.js"></script>
+    <script>
+        download.addEventListener("click", function() {
+            // only jpeg is supported by jsPDF
+            var ctx = document.getElementById('myChart');
+            var imgData = ctx.toDataURL("image/jpeg", 1.0);
+            var pdf = new jsPDF({
+                orientation: 'landscape',
+            });
+            pdf.addImage(imgData, 'JPEG', 0, 0);
+            pdf.save("download.pdf");
+        }, false);
     </script>
+
 
 </body>
 </html>

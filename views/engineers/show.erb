@@ -1,26 +1,40 @@
-<h1> Individual Engineer </h1>
+<h1> Showing all Engineers: </h1>
 
 
-  <div>
-    <p>Engineer ID: <%= engineer["eng_id"] %></p>
-    <p>Name <%= engineer["name"] %></p>
-    <p>Email: <%= engineer["email"] %></p>
+    <div class="grid-container-engineer grid-heading">
+        <div>Eng ID</div>
+        <div>S/E Name</div>
+        <div>Email</div>
+        <div>Role</div>
+    </div>
 
-  </div>
-  
+    <% engineers.each do |engineer| %>
 
-<div class="inlineform">
+        <div class="grid-container-engineer">
+            <div><a href="/engineers/<%=engineer["eng_id"] %>"><%=engineer["eng_id"] %></a></div>
+            <div><%= engineer["name"] %></div>
+            <div><%= engineer["email"] %></div>
+            <div><%= engineer["role"] %></div>
+            
+        </div>
+    <% end %>
 
-    <form action="/engineers/<%= engineer["eng_id"] %>/edit" method="get" class="form">
-        <button>Edit Record</button>
-    </form>
+    <br>
+        <form action="/engineers/new" method="get" class="form">
+            <button>New Engineer</button>
+        </form>
+    <br>
 
-    <form action="/defects" method="get" class="form">
-        <button>Return</button>
-    </form>
-  
-    <form action="/defects" method="post" class="form">
-        <input type="hidden" name="defect_id" value="<%= engineer["eng_id"] %>">
-        <input type="hidden" name="_method" value="delete">
-      <button>Delete</button>
-    </form>
+    <div class="pagination">
+        <center>
+            <a href="#">&laquo;</a>
+            <a class="active" href="#">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+            <a href="#">6</a>
+            <a href="#">&raquo;</a>
+        </center>
+    </div>
+

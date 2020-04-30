@@ -17,7 +17,8 @@
             <div><%= defect["defect_title"] %></div>
             <div><%= defect["description"] %></div>
             <div><%= defect["status"] %></div>
-            <div><%= defect["eng_id"] %></div>
+            <div><a href="/engineers/<%=defect["eng_id"] %>"><%=defect["eng_id"] %></a></div>
+
         </div>
 
     <% end %>

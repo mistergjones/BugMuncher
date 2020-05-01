@@ -135,7 +135,6 @@ end
 
 
 post '/engineers' do
-  binding.pry
   create_engineer(params[:name], params[:email], params[:password], params[:role])
   redirect "/engineers"
 end

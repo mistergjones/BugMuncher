@@ -39,6 +39,9 @@ Need to do the following:
 * Include the duration time stamps for when a new defect is raised and to when it is closed.
 * Include the functionality that tracks the requirement points that a defect pertains to.
 * Integrate multiple table joins to ensure cohesiveness is maintained and referential integrity is enforced.
+* Create 'Contact' Page and update Social links.
+* Implement the pagination for > 15 records.
+* Fix the footer permanantly to the bottom of page.
 
 ## Screenshots
 ![Example screenshot](screenshot.png)
@@ -56,10 +59,11 @@ Need to do the following:
 
 ## Approach Taken
 * Via pen and paper, wireframed a basic outline of key elements to be used and how positioned.
-* Also via pen and paper, constructed simple ER diagram.
-* Functionalityi wise, ensure the server side database functionality operated well.
-* Then ensured that the client side presentation was reasonable.
-* Finally, introduced some client side Javascript to update graphs in real time via DOM manipulation.
+* Also via pen and paper, constructed simple ER diagram as part of it.
+* Functionality wise, ensure the server side database functionality operated well via PostGres and Ruby.
+* Ensured all routes are functional.
+* Secondly, ensured that the client side presentation was reasonable.
+* Finally, introduced some client side Javascript to update graphs in real time via DOM manipulation and the use of chartjs CDN.
 
 
 ## Technologies Used

@@ -23,6 +23,8 @@ This project is to demonstrate both client side and Server side technologies:
 ## BugMuncher Link
 * The link to the BugMuncher online application is here:
 [https://bugmuncher.herokuapp.com]
+* Public ER Diagram link:
+[https://whimsical.com/M9h9oNGHibMCgt7BQ5H4pn]
 
 
 ## Necessary Deliverables
@@ -45,7 +47,6 @@ Need to do the following:
 
 ## Screenshots
 ![Example screenshot](screenshot.png)
-
 
 ## In-depth Features of BugMuncher
 * Software Engineers can register and use the portal to manage defects for each sprint/project.

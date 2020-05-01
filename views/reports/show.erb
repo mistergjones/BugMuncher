@@ -1,0 +1,43 @@
+<h1> Showing all Reports </h1>
+
+<h3> Velocity Report </h3>
+
+    <div class="grid-container-engineer grid-heading">
+        <div>What Week</div>
+        <div>Target Points</div>
+        <div>Ideal Points</div>
+        <div>Actual Points</div>
+    </div>
+
+    <% all_chart_info.each do |chart_info| %>
+
+        <div class="grid-container-engineer">
+            <div class="weeks"><%= chart_info["week"] %></div>
+            <div class="points"><%= chart_info["points_target"] %></div>
+            <div class="ideal"><%= chart_info["ideal_points"] %></div>
+            <div class="actual"><%= chart_info["actual_points"] %></div>
+            
+        </div>
+    <% end %>
+
+    <div class="fixed-height-chart">
+        <canvas id="myChart" width="200px" height="200px"></canvas>
+    </div>
+
+    <center>
+        <button id="download">Download Graph</button>
+    <center>
+
+    <script src="/javascripts/velocity_chart.js"></script>
+    <script>
+        download.addEventListener("click", function() {
+            // only jpeg is supported by jsPDF
+            var ctx = document.getElementById('myChart');
+            var imgData = ctx.toDataURL("image/jpeg", 1.0);
+            var pdf = new jsPDF({
+                orientation: 'landscape',
+            });
+            pdf.addImage(imgData, 'JPEG', 0, 0);
+            pdf.save("download.pdf");
+        }, false);
+    </script>

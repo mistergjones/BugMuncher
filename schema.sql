@@ -36,3 +36,22 @@ SELECT status, COUNT (status) from defects group by status UNION ALL select 'Tot
 ALTER TABLE defects ADD COLUMN eng_id INTEGER;
 
 ALTER TABLE engineers ADD COLUMN password_digest TEXT;
+ALTER TABLE engineers ADD COLUMN role TEXT;
+
+drop table reports;
+
+CREATE TABLE reports (
+    report_id SERIAL PRIMARY KEY,
+    week TEXT,
+    points_target INTEGER,
+    ideal_points INTEGER,
+    actual_points INTEGER
+);
+
+INSERT INTO reports (week, points_target, ideal_points, actual_points) VALUES ('Week1', 400, 45, 40);
+INSERT INTO reports (week, points_target, ideal_points, actual_points) VALUES ('Week2', 400, 85, 75);
+INSERT INTO reports (week, points_target, ideal_points, actual_points) VALUES ('Week3', 300, 112, 82);
+INSERT INTO reports (week, points_target, ideal_points, actual_points) VALUES ('Week4', 300, 146, 130);
+INSERT INTO reports (week, points_target, ideal_points, actual_points) VALUES ('Week5', 250, 213, 240);
+
+

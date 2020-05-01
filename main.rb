@@ -10,6 +10,7 @@ require 'pry' if development?
 
 require_relative 'models/defect'
 require_relative 'models/engineer'
+require_relative 'models/reports'
 require_relative 'lib'
 
 enable :sessions # plural - this is a sinatra feature
@@ -165,4 +166,13 @@ patch '/engineers' do
     #session['eng_id']
   )
   redirect "/engineers/#{params[:eng_id]}"  
+end
+
+get '/reports' do
+
+  #1. route to login if the user is not logged in
+  redirect "/login" unless logged_in?
+
+  velocity_chart = defect_summary()
+  erb(:'/reports/show')
 end

@@ -56,7 +56,7 @@ Need to do the following:
 * Tracking of the Velocity is also catered for.
 
 ## Challenges
-* Establishing logic to immitate computer AI which was resolved by randomizing index positions to fill if a slot was available.
+* Ensuring the graph could be updated upon a change in the database.
 
 ## Approach Taken
 * Via pen and paper, wireframed a basic outline of key elements to be used and how positioned.

@@ -9,14 +9,17 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"></script>
  
   <script src="https://code.jquery.com/jquery-3.5.0.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
+  <%# <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script> %>
+  <%# <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.js"></script> %>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
+
 
   <title>BugMuncher</title>
   <link rel="stylesheet" href="/stylesheets/main.css">
 </head>
 <body>
 
-  <div class=mainContainer>
+  
     <div class="navbar">
         <a href="/">Home</a>
         <a href="/defects">All Defects</a>
@@ -27,14 +30,14 @@
     </div>
 
 
-    <div class="icon-bar">
+    <%# <div class="icon-bar">
       <a href="#" class="facebook"><i class="fa fa-facebook"></i></a> 
       <a href="#" class="twitter"><i class="fa fa-twitter"></i></a> 
       <a href="#" class="google"><i class="fa fa-google"></i></a> 
       <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
       <a href="#" class="youtube"><i class="fa fa-youtube"></i></a> 
-    </div>
-
+    </div> %>
+<div class=mainContainer>
 
     <%= yield %>
 
@@ -50,7 +53,7 @@
 
     <% end %>
 
-
+</div>
   
 
     <div class="fixed-footer">
@@ -62,12 +65,12 @@
         <a href="/reports">Reports</a>
         <a href="#">Contact</a>
       </div>
-    </div>
+    
 
   
   </div>
   
 
-  
+
 </body>
 </html>

@@ -1,5 +1,6 @@
-console.log("XXXXXXXXXXXXXZZXZXZXZXZXZXZXZXZXZXZXZXZXZXZXZXZXZXZXXZ");
+//console.log("XXXXXXXXXXXXXZZXZXZXZXZXZXZXZXZXZXZXZXZXZXZXZXZXZXZXXZ");
 var ctx = document.getElementById('myChart').getContext('2d');
+
 allDefects = document.querySelectorAll('.defectCount');
 updatedDefectArray = [];
 for (var i=0; i < allDefects.length;i++) {

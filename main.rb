@@ -18,6 +18,7 @@ enable :sessions # plural - this is a sinatra feature
 get '/' do
   # how about show current defect summary at the start. The users to login to see more detail
   defect_summary = defect_summary()
+  
   #puts defect_summary.to_a
   erb(:index, locals: {
     defect_summary: defect_summary

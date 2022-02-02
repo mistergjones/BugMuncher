@@ -4,8 +4,8 @@
 
 body {
     background-color: white;
-    font-family: 'Yanone Kaffeesatz', sans-serif;
-    font-size: 14px;
+    font-family: "Yanone Kaffeesatz", sans-serif;
+    font-size: 24px;
 }
 
 h1 {
@@ -20,8 +20,7 @@ h3 {
 }
 
 .inlineform {
-
-    display:inline;
+    display: inline;
 }
 
 input:valid {
@@ -34,8 +33,11 @@ input:invalid {
 
 .mainContainer {
     width: 90%;
-    margin: 0 auto;
-
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
 }
 
 .allDefects {
@@ -57,11 +59,10 @@ input:invalid {
 }
 
 .grid-heading {
-    background-color:#5e5e5e;
+    background-color: #5e5e5e;
     color: white;
     text-align: left;
     padding: 5px;
-
 }
 
 .divCenter {
@@ -76,10 +77,11 @@ input:invalid {
     align-content: center;
 }
 
-
-.fixed-footer{
-    position: static;
-}    
+.fixed-footer {
+    position: absolute;
+    bottom: 0;
+    width: 99%;
+}
 
 .navbar {
     margin-top: 1%;
@@ -87,7 +89,6 @@ input:invalid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 1px;
-    
 }
 
 .navbar a {
@@ -105,16 +106,17 @@ input:invalid {
     float: left;
     padding: 8px 16px;
     text-decoration: none;
-    transition: background-color .3s;
+    transition: background-color 0.3s;
 }
-  
-  .pagination a.active {
+
+.pagination a.active {
     background-color: dodgerblue;
     color: white;
-  }
-  
-  .pagination a:hover:not(.active) {background-color: #ddd;}
+}
 
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+}
 
 .icon-bar {
     position: fixed;
@@ -123,59 +125,77 @@ input:invalid {
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-  }
-  
-  .icon-bar a {
+}
+
+.icon-bar a {
     display: block;
     text-align: center;
     padding: 8px;
     transition: all 0.3s ease;
     color: white;
     font-size: 8px;
-  }
-  
-  .icon-bar a:hover {
+}
+
+.icon-bar a:hover {
     background-color: #000;
-  }
-  
-  .facebook {
-    background: #3B5998;
+}
+
+.facebook {
+    background: #3b5998;
     color: white;
-  }
-  
-  .twitter {
-    background: #55ACEE;
+}
+
+.twitter {
+    background: #55acee;
     color: white;
-  }
-  
-  .google {
+}
+
+.google {
     background: #dd4b39;
     color: white;
-  }
-  
-  .linkedin {
+}
+
+.linkedin {
     background: #007bb5;
     color: white;
-  }
-  
-  .youtube {
+}
+
+.youtube {
     background: #bb0000;
     color: white;
-  }
-  
-  .content {
+}
+
+.content {
     margin-left: 75px;
     font-size: 30px;
-  }
+}
 
-  .fixed-height-chart {
-    height: 200px;
-    width:100%;
+.fixed-height-chart {
+    height: 600px;
+    width: 100%;
     border: 1px solid black;
 }
 
 canvas {
     display: inline;
+}
 
- }
+.button-container {
+    display: grid;
+    margin-top: 1rem;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+}
 
+form button {
+    background-color: black;
+    width: 95%;
+    color: white;
+    font-weight: 900;
+    font-size: 1.5rem;
+    border: none;
+}
+
+form button:hover {
+    background-color: red;
+}

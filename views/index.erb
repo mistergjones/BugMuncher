@@ -4,16 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>Bug Muncher</title>
 <style> @import url('https://fonts.googleapis.com/css?family=Luckiest+Guy');
  @import url('https://fonts.googleapis.com/css?family=Montserrat:900');
  
 </style>
 </head>
+
 <body>
+
+<div class="main-page-container">
     <h1>Bug Muncher</h1>
 
-    <h3>Current Sprint: Defect Overview</h3>
+    <h3>Defect Overview: Current Sprint</h3>
 
     <div class="divCenter">
         <div class="grid-defect-summary">
@@ -27,28 +30,37 @@
 
 
     <div class="fixed-height-chart">
-        <canvas id="myChart" width="200px" height="200px"></canvas>
+        <canvas id="myChart" width="400px" height="400px"></canvas>
     </div>
 
+    <div class="button-container">
+ 
+        <form action="">
+            <button id="download">Download Graph</button>
+        </form>
+        
+    
 
-    <center>
-        <button id="download">Download Graph</button>
-    </center>
+        <form action="/login" method="get" class="form">
+            <button>Login</button>
+        </form>
 
-    <form action="/login" method="get" class="form">
-        <button>Login</button>
-    </form>
-
-    <form action="/engineers/new" method="get" class="form">
-        <button>Sign Up</button>
-    </form>
+        <form action="/engineers/new" method="get" class="form">
+            <button>Sign Up</button>
+        </form>
+    </div>
 
     <script src="/javascripts/application.js"></script>
+
+
+
     <script>
+        
         download.addEventListener("click", function() {
             // only jpeg is supported by jsPDF
             var ctx = document.getElementById('myChart');
             var imgData = ctx.toDataURL("image/jpeg", 1.0);
+            
             var pdf = new jsPDF({
                 orientation: 'landscape',
             });
@@ -57,6 +69,6 @@
         }, false);
     </script>
 
-
+</div>
 </body>
 </html>

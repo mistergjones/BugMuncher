@@ -81,6 +81,7 @@ input:invalid {
     position: absolute;
     bottom: 0;
     width: 99%;
+    z-index: 99;
 }
 
 .navbar {
@@ -89,6 +90,7 @@ input:invalid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 1px;
+    z-index: 99;
 }
 
 .navbar a {
@@ -101,9 +103,14 @@ input:invalid {
     background-color: red;
 }
 
+.pagination-container {
+    text-align: center;
+    border: 3px solid black;
+}
+
 .pagination a {
     color: black;
-    float: left;
+
     padding: 8px 16px;
     text-decoration: none;
     transition: background-color 0.3s;
@@ -177,7 +184,12 @@ input:invalid {
 }
 
 canvas {
-    display: inline;
+    /* display: inline; */
+}
+
+#myChart {
+    height: 100px;
+    width: 100px;
 }
 
 .button-container {
@@ -187,6 +199,27 @@ canvas {
     grid-template-rows: 1fr;
 }
 
+.login-form,
+.registration-form {
+    border: 3px solid black;
+    text-align: center;
+}
+
+.form-inputs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-row-gap: 1rem;
+    margin: 0 auto;
+    width: 50%;
+}
+
+.login-button,
+.submit-button {
+    width: 50%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
 form button {
     background-color: black;
     width: 95%;
@@ -194,8 +227,31 @@ form button {
     font-weight: 900;
     font-size: 1.5rem;
     border: none;
+    margin-bottom: 1rem;
 }
 
 form button:hover {
     background-color: red;
+}
+
+/* VELOCITY CHARTS */
+
+#velocity-chart {
+    width: 100% !important;
+    height: 400px !important;
+}
+
+.velocity-download-button {
+    text-align: center;
+    margin: 0 auto;
+    width: 50%;
+}
+
+/* LOGGED IN FEATURES */
+.logged-in-features {
+    text-align: center;
+}
+
+.logged-in-features button {
+    width: 50%;
 }

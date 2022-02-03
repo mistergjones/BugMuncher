@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Bug Muncher</title>
+
 <style> @import url('https://fonts.googleapis.com/css?family=Luckiest+Guy');
  @import url('https://fonts.googleapis.com/css?family=Montserrat:900');
  
@@ -30,13 +31,13 @@
 
 
     <div class="fixed-height-chart">
-        <canvas id="myChart" width="400px" height="400px"></canvas>
+        <canvas id="myChart"></canvas>
     </div>
 
     <div class="button-container">
  
-        <form action="">
-            <button id="download">Download Graph</button>
+        <form action="" class="form">
+            <button id="download">Download Chart (PDF)</button>
         </form>
         
     
@@ -55,18 +56,34 @@
 
 
     <script>
+
+    const canvas = document.querySelector('canvas');
+    const download = document.querySelector('button');
+    const context = canvas.getContext('2d');
+    const {jsPDF} = window.jspdf;
+    const pdf = new jsPDF(
+             {orientation: 'l', unit: 'mm',format: 'a1', putOnlyUsedFonts:true}
+        );
+    download.addEventListener("click", () => 
+    {
+        const imgData = canvas.toDataURL(canvas, '#ffffff', {type: "image/jpeg", encoderOptions: 1.0});
+        pdf.addImage(imgData, 'JPEG', 0, 0);
+        pdf.save("download.pdf");
+    }, false);
+
+
         
-        download.addEventListener("click", function() {
-            // only jpeg is supported by jsPDF
-            var ctx = document.getElementById('myChart');
-            var imgData = ctx.toDataURL("image/jpeg", 1.0);
+        // download.addEventListener("click", function() {
+        //     // only jpeg is supported by jsPDF
+        //     var ctx = document.getElementById('myChart');
+        //     var imgData = ctx.toDataURL("image/jpeg", 1.0);
             
-            var pdf = new jsPDF({
-                orientation: 'landscape',
-            });
-            pdf.addImage(imgData, 'JPEG', 0, 0);
-            pdf.save("download.pdf");
-        }, false);
+        //     var pdf = new jsPDF({
+        //         orientation: 'landscape',
+        //     });
+        //     pdf.addImage(imgData, 'JPEG', 0, 0);
+        //     pdf.save("download.pdf");
+        // }, false);
     </script>
 
 </div>

@@ -50,6 +50,7 @@ post '/login' do
   # After a user submits their login details, we need to verify them.
   # 1. obtain the current engineer's email address who is attempting to login
   engineer = find_one_engineer_by_email( params[:email] )
+  puts(engineer)
 
   #2
   if engineer && BCrypt::Password.new(engineer["password_digest"]) == params[:password]

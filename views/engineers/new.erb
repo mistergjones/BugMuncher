@@ -1,23 +1,28 @@
 
+
+
+<form action="/engineers" method="post" class="registration-form" name="newUser">
+
 <h1>New Software Engineer Registration </h1>
-
-
-<form action="/engineers" method="post" class="form" name="newUser">
-    <label for="">Name</label>
+<div class="form-inputs">
+    <label for="">Engineer Name:</label>
     <input name="name" type="text" minlength="2">
-    <br>
-    <label for="">Email</label>
+
+    <label for="">Engineer Email:</label>
     <input name="email" type="email" required>
-    <br>
-    <label for="">Password</label>
+ 
+    <label for="">Engineer Password:</label>
     <input name="password" type="text" minlength="1">
-    <br>
-    <label for="">Role:</label>
+  
+     
+    <label for="">Engineer Role:</label>
     <select name="role">
         <option value="Jnr Dev">Jnr Dev</option>
         <option value="Snr Dev">Snr Dev</option>
         <option value="Tech Lead">Tech Lead</option>
     </select>
-    <br>
-  <button>Submit</button>
+     </div>
+
+
+  <button class="submit-button">Submit</button>
 </form>

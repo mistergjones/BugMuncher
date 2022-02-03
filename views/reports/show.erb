@@ -1,6 +1,4 @@
-<h1> Showing all Reports </h1>
-
-<h3> Velocity Report </h3>
+<h1> Velocity Report </h1>
 
     <div class="grid-container-engineer grid-heading">
         <div>What Week</div>
@@ -20,24 +18,47 @@
         </div>
     <% end %>
 
-    <div class="fixed-height-chart">
-        <canvas id="myChart" width="200px" height="200px"></canvas>
+    <div>
+        <canvas id="velocity-chart"></canvas>
     </div>
 
-    <center>
-        <button id="download">Download Graph</button>
-    <center>
+    <form action="">
+        <div class="velocity-download-button">
+            <button  id="download">Download Graph</button>
+        </div>
+        
+    </form>
+    
+ 
 
     <script src="/javascripts/velocity_chart.js"></script>
     <script>
-        download.addEventListener("click", function() {
-            // only jpeg is supported by jsPDF
-            var ctx = document.getElementById('myChart');
-            var imgData = ctx.toDataURL("image/jpeg", 1.0);
-            var pdf = new jsPDF({
-                orientation: 'landscape',
-            });
-            pdf.addImage(imgData, 'JPEG', 0, 0);
-            pdf.save("download.pdf");
-        }, false);
+
+    const canvas = document.querySelector('canvas');
+    const download = document.querySelector('button');
+    const context = canvas.getContext('2d');
+    const {jsPDF} = window.jspdf;
+    const pdf = new jsPDF(
+             {orientation: 'l', unit: 'mm',format: 'a1', putOnlyUsedFonts:true}
+        );
+    download.addEventListener("click", () => 
+    {
+        const imgData = canvas.toDataURL(canvas, '#ffffff', {type: "image/jpeg", encoderOptions: 1.0});
+        pdf.addImage(imgData, 'JPEG', 0, 0);
+        pdf.save("download.pdf");
+    }, false);
+
+
+
+
+        // download.addEventListener("click", function() {
+        //     // only jpeg is supported by jsPDF
+        //     var ctx = document.getElementById('velocity-chart');
+        //     var imgData = ctx.toDataURL("image/jpeg", 1.0);
+        //     var pdf = new jsPDF({
+        //         orientation: 'landscape',
+        //     });
+        //     pdf.addImage(imgData, 'JPEG', 0, 0);
+        //     pdf.save("download.pdf");
+        // }, false);
     </script>

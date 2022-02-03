@@ -1,9 +1,12 @@
-<h1>Please enter your details to Login</h1>
 
-<form action="/login" method="post" class="form">
-  <label for="">email</label>
-  <input name="email" type="email" required>
-  <label for="">password</label>
-  <input name="password" type="password">
-  <button>login</button>
+
+<form action="/login" method="post" class="login-form">
+<h1>Please enter your details to Login</h1>
+<div class="form-inputs">
+  <label for="">Your Email:</label>
+   <input name="email" type="email" required>
+  <label for="">Your Password: </label>
+  <input name="password" type="password" required>
+</div>
+  <button class="login-button">Login</button>
 </form>
